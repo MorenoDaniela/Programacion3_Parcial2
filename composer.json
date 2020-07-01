@@ -1,0 +1,25 @@
+{
+    "name": "dell/programacion3_parcial2",
+    "authors": [
+        {
+            "name": "Daniela Moreno",
+            "email": "denu.moreno.1990@gmail.com"
+        }
+    ],
+    "require": 
+    {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.1",
+        "illuminate/database": "^7.15",
+        "illuminate/events": "^7.17",
+        "firebase/php-jwt": "^5.2"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "App\\": "src",
+            "Config\\": "config"
+        }
+    }
+}
