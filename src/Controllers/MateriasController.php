@@ -67,5 +67,34 @@ class MateriasController
             $response->getBody()->write($rta);
         }
         return $response;
-    } 
+    }
+    
+    public function asignaMateria(Request $request, Response $response, $args)
+    {
+        $header = getallheaders();
+        $token = $header['token'];
+        $idMateria = $args['id'];
+        $idProfesor = $args['profesor'];
+
+        $profesorEncontrado = json_decode(User::where('id',$idProfesor)->get());
+        $materiaEncontrada = json_decode(Materia::where('id', $id)->get());
+        if ($profesorEncontrado[0] != [] && $materiaEncontrada[0]!=[])
+        {
+            /*
+            $Materia = new Materia;
+            $Materia->vacantes = $respuesta['vacantes'];
+            $Materia->cuatrimestre = $respuesta['cuatrimestre'];
+            $Materia->profesor_id = $respuesta['profesor'];
+            $Materia->materia = $respuesta['materia'];*/
+            $rta = json_encode(array("ok" => " No llegue"));
+            $response->getBody()->write($rta);
+        }else
+        {
+            $rta = json_encode(array("false" => "No se encontraron coincidencias."));
+            $response->getBody()->write($rta);
+        }
+
+        return $response;
+    }
+    
 }
